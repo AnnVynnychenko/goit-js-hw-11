@@ -26,6 +26,8 @@ let options = {
     threshold: 1.0
 };
 
+
+
 function onLoad(entries, observer) {
 	entries.forEach(entry => {
 		if(entry.isIntersecting) {
@@ -159,6 +161,13 @@ function onGalleryItemClick(e) {
 };
 
 function initGallery(images) {
+	gallery.getPopularPhotos().then(({hits}) => {
+		clearMarkup();
+		appendMarkup(hits);
+		observer.observe(refs.target);
+		// loadMore.show();
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}).catch(err => console.log(err))
 	refs.listOfImagesEl.addEventListener('click', onGalleryItemClick);
 }
 

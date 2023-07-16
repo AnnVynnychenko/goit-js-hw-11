@@ -12,6 +12,19 @@ export class Pixabay {
         this.per_page = 40;
     }
 
+    async getPopularPhotos() {
+        try {
+          const response = await axios.get(`${
+                    this.#BASE_URL
+                }?key=${
+                    this.#API_KEY
+                }&q=popular&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.per_page}`);
+          return response.data;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
     async getPhotos() {
         try {
           const response = await axios.get(`${
