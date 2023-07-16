@@ -26,7 +26,9 @@ let options = {
     threshold: 1.0
 };
 
-
+function scrollUp () {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 function onLoad(entries, observer) {
 	entries.forEach(entry => {
@@ -36,6 +38,7 @@ function onLoad(entries, observer) {
 				appendMarkup(hits);
 				// smoothScroll();
 				endOfCollection(totalHits);
+				scrollUp();
 				const lastPage = Math.ceil(totalHits/gallery.per_page);
 				if(gallery.page === lastPage) {
 					observer.unobserve(refs.target);
@@ -108,7 +111,7 @@ function onSubmit(e) {
 		Notify.success(`Hooray! We found ${totalHits} images.`);
 		observer.observe(refs.target);
 		// loadMore.show();
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		scrollUp();
 		endOfCollection(totalHits);
 		
 	}).catch(err => console.log(err))
@@ -166,7 +169,7 @@ function initGallery(images) {
 		appendMarkup(hits);
 		observer.observe(refs.target);
 		// loadMore.show();
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		scrollUp();
 	}).catch(err => console.log(err))
 	refs.listOfImagesEl.addEventListener('click', onGalleryItemClick);
 }
