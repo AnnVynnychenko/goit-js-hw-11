@@ -104,11 +104,11 @@ function onSubmit(e) {
 		if(hits.length === 0) {
 			return Notify.failure('Sorry, there are no images matching your search query. Please try again.');
 		} 
-		window.scrollTo({ top: 0, behavior: 'smooth' });
 		appendMarkup(hits);
 		Notify.success(`Hooray! We found ${totalHits} images.`);
 		observer.observe(refs.target);
 		// loadMore.show();
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 		endOfCollection(totalHits);
 		
 	}).catch(err => console.log(err))
