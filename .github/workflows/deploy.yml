@@ -16,7 +16,7 @@ jobs:
           npm ci
           npm run build
         env:
-          PARCEL_PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PARCEL_PIXABAY_API_KEY: ${{ secrets.PARCEL_PIXABAY_API_KEY }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
