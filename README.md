@@ -24,4 +24,5 @@ modal previews.
 
 1. Clone the repository: `git clone <repository-url>`
 2. Install dependencies: `npm install`
-3. Start dev server: `npm start`
+3. Set `PARCEL_PIXABAY_API_KEY=your_key` in `.env`
+4. Start dev server: `npm start`
